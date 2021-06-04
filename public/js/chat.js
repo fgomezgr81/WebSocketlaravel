@@ -7,7 +7,7 @@ const PERSON_IMG = "https://image.flaticon.com/icons/svg/145/145867.svg";
 const chatWith=get('.chatWith');
 const typing=get('.typing');
 const chatStatus=get('.chatStatus');
-const chatId=$('#chatId').val();
+const chatId = window.location.pathname.substr(6);
 
 msgerForm.addEventListener("submit", event => {
   event.preventDefault();
@@ -18,10 +18,13 @@ msgerForm.addEventListener("submit", event => {
   /*codigo del envio */
 axios.post('/message/sent',{
   message:msgText,
-  chat_id:1
+  chat_id:chatId
 }).then(res=>{
+ 
+ 
   let data=res.data;
-  appendMessage(dta.user,name,
+ 
+  appendMessage(data.user.name,
     PERSON_IMG,'right',
     data.content,
     formatDate(new Date(data.created_at))

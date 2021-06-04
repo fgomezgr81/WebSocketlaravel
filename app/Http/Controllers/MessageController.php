@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-// use App\Models\Message;
-// use App\Models\User;
 use App\Events\MessageSent;
 
 class MessageController extends Controller
@@ -14,8 +12,7 @@ class MessageController extends Controller
     }
 
     public function sent(Request $request){
-
-       
+ 
         $message=auth()->user()->messages()->create([
             'content'=>$request->message,
             'chat_id'=>$request->chat_id

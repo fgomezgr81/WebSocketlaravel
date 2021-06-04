@@ -30,4 +30,5 @@ Route::get('chat/with/{user_id}', [ChatController::class,'chat_with'])->name('ch
 
 Route::get('chat/{chat_id}', [ChatController::class,'show'])->name('chat.show');
 
-Route::post('message/sent', [MessageController::class,'sent'])->name('message.sent');
+// Route::post('message/sent', [MessageController::class,'sent'])->name('message.sent');
+Route::post('message/sent', 'App\Http\Controllers\MessageController@sent')->name('message.sent');

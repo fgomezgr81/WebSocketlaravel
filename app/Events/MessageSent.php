@@ -22,7 +22,7 @@ class MessageSent implements ShouldBroadcast
      */
     public function __construct($message)
     {
-        4this->message=$message;
+        $this->message=$message;
     }
 
     /**

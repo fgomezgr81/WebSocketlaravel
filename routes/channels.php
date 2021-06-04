@@ -18,7 +18,7 @@ Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
 });
 
 Broadcast::channel('chat.{chat_id}', function($user,$chat_id){
-    if($user->chats()->contains($chat_id)){
+    if($user->chats->contains($chat_id)){
         return $user;
     }
 });
