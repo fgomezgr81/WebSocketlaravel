@@ -28,6 +28,7 @@
 			<form class="msger-inputarea">
 				<input type="text" class="msger-input" oninput="sendTypingEvent()" placeholder="Enter your message...">
 				<button type="submit" class="msger-send-btn">Send</button>
+				<input type="hidden" name="chatId" value= "{{$chat->id  }}"/>
 			</form>
  
 		</section>

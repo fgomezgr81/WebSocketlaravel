@@ -1,3 +1,5 @@
+
+
 const msgerForm = get(".msger-inputarea");
 const msgerInput = get(".msger-input");
 const msgerChat = get(".msger-chat");
@@ -5,6 +7,7 @@ const PERSON_IMG = "https://image.flaticon.com/icons/svg/145/145867.svg";
 const chatWith=get('.chatWith');
 const typing=get('.typing');
 const chatStatus=get('.chatStatus');
+const chatId=$('#chatId').val();
 
 msgerForm.addEventListener("submit", event => {
   event.preventDefault();
@@ -53,6 +56,13 @@ function appendMessage(name, img, side, text,date) {
   msgerChat.insertAdjacentHTML("beforeend", msgHTML);
   msgerChat.scrollTop += 500;
 }
+
+//laravel echo
+
+Echo.join('chat.${chatId}')
+.listen('MessageSent',(e)=>{
+console.log(e);
+});
 
 
 // Utils
